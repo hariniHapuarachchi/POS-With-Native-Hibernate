@@ -4,13 +4,15 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import java.io.Serializable;
 
-@Embeddable
+//@Embeddable
 public class OrderDetailPK implements Serializable {
 
-    @Column(name = "orderId")
+//    @Column(name = "orderId")
     private String orderId;
-    @Column(name = "itemCode")
+//    @Column(name = "itemCode")
     private String itemCode;
+
+
 
     public OrderDetailPK() {
     }

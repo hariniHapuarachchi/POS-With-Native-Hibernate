@@ -4,10 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.sql.Date;
 
-@Entity
+//@Entity
 public class Order extends SuperEntity{
 
-    @Id
+//    @Id
     private String id;
     private Date date;
     private String customerId;

@@ -2,6 +2,8 @@ package lk.ijse.dep.app.dao;
 
 import lk.ijse.dep.app.entity.SuperEntity;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
@@ -10,41 +12,44 @@ import java.util.Optional;
 
 public class CrudDAOImpl<T extends SuperEntity, ID extends Serializable> implements CrudDAO<T, ID> {
 
-    private Session session;
+    @Autowired
+    private SessionFactory sessionFactory;
     private Class<T> entity;
 
     public CrudDAOImpl(){
         entity = (Class<T>) (((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[0]);
     }
 
+
     @Override
-    public void setSession(Session session) {
-        this.session = session;
+    public Session getSession() {
+        return sessionFactory.getCurrentSession();
     }
 
     @Override
     public void save(T entity) throws Exception {
-        session.save(entity);
+        getSession().save(entity);
     }
 
     @Override
     public void update(T entity) throws Exception {
-        session.update(entity);
+        getSession().update(entity);
     }
 
     @Override
     public void delete(ID key) throws Exception {
-        session.delete(session.load(entity,key));
+        getSession().delete(getSession().load(entity,key));
     }
 
     @Override
     public Optional<T> find(ID key) throws Exception {
-        return Optional.ofNullable(session.find(entity,key));
+        return Optional.ofNullable(getSession().find(entity,key));
     }
 
     @Override
     public Optional<List<T>> findAll() throws Exception {
-        return Optional.ofNullable(session.createQuery("FROM " + entity.getName()).list());
+        return Optional.ofNullable(getSession().createQuery("FROM " + entity.getName()).list());
     }
+
 
 }

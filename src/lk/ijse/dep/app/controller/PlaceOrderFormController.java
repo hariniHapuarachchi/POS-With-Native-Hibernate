@@ -21,7 +21,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import lk.ijse.dep.app.business.BOFactory;
 import lk.ijse.dep.app.business.custom.ManageCustomersBO;
 import lk.ijse.dep.app.business.custom.ManageItemsBO;
 import lk.ijse.dep.app.business.custom.ManageOrdersBO;
@@ -69,9 +68,9 @@ public class PlaceOrderFormController {
 
     private ObservableList<ItemDTO> tempItemsDB = FXCollections.observableArrayList();
 
-    private ManageOrdersBO manageOrdersBO = BOFactory.getInstance().getBO(BOFactory.BOTypes.MANAGE_ORDERS);
-    private ManageItemsBO manageItemsBO = BOFactory.getInstance().getBO(BOFactory.BOTypes.MANAGE_ITEMS);
-    private ManageCustomersBO manageCustomersBO = BOFactory.getInstance().getBO(BOFactory.BOTypes.MANAGE_CUSTOMERS);
+    private ManageOrdersBO manageOrdersBO ;//= BOFactory.getInstance().getBO(BOFactory.BOTypes.MANAGE_ORDERS);
+    private ManageItemsBO manageItemsBO ; //=BOFactory.getInstance().getBO(BOFactory.BOTypes.MANAGE_ITEMS);
+    private ManageCustomersBO manageCustomersBO ;//= BOFactory.getInstance().getBO(BOFactory.BOTypes.MANAGE_CUSTOMERS);
 
     public void initialize() {
 

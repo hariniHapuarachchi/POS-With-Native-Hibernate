@@ -20,9 +20,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.dep.app.business.BOFactory;
 import lk.ijse.dep.app.business.custom.ManageItemsBO;
-import lk.ijse.dep.app.business.custom.impl.ManageItemsBOImpl;
 import lk.ijse.dep.app.main.AppInitializer;
 import lk.ijse.dep.app.dto.ItemDTO;
 import lk.ijse.dep.app.view.util.ItemTM;
@@ -56,7 +54,7 @@ public class ManageItemFormController {
     @FXML
     private TableView<ItemTM> tblItems;
 
-    private ManageItemsBO manageItemsBO = BOFactory.getInstance().getBO(BOFactory.BOTypes.MANAGE_ITEMS);
+    private ManageItemsBO manageItemsBO = AppInitializer.acca.getBean(ManageItemsBO.class);
 
     public void initialize() {
 

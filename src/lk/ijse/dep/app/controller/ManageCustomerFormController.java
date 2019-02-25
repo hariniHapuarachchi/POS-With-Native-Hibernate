@@ -20,12 +20,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.dep.app.business.BOFactory;
 import lk.ijse.dep.app.business.custom.ManageCustomersBO;
-import lk.ijse.dep.app.business.custom.impl.ManageCustomersBOImpl;
 import lk.ijse.dep.app.main.AppInitializer;
 import lk.ijse.dep.app.dto.CustomerDTO;
 import lk.ijse.dep.app.view.util.CustomerTM;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -57,8 +56,7 @@ public class ManageCustomerFormController{
     @FXML
     private TableView<CustomerTM> tblCustomers;
 
-    private ManageCustomersBO manageCustomersBO = BOFactory.getInstance().getBO(BOFactory.BOTypes.MANAGE_CUSTOMERS);
-
+    private ManageCustomersBO manageCustomersBO = AppInitializer.acca.getBean(ManageCustomersBO.class);
     /**
      * Initializes the controller class.
      */

@@ -1,31 +1,27 @@
 package lk.ijse.dep.app.business.custom.impl;
 
-import lk.ijse.dep.app.business.Converter;
 import lk.ijse.dep.app.business.custom.ManageOrdersBO;
-import lk.ijse.dep.app.dao.DAOFactory;
-import lk.ijse.dep.app.dao.custom.CustomerDAO;
 import lk.ijse.dep.app.dao.custom.OrderDAO;
 import lk.ijse.dep.app.dao.custom.OrderDetailDAO;
 import lk.ijse.dep.app.dao.custom.QueryDAO;
-import lk.ijse.dep.app.dto.CustomerDTO;
 import lk.ijse.dep.app.dto.OrderDTO;
 import lk.ijse.dep.app.dto.OrderDTO2;
-import lk.ijse.dep.app.dto.OrderDetailDTO;
-import lk.ijse.dep.app.util.HibernateUtil;
-import org.hibernate.Session;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
-
+//@Component
 public class ManageOrdersBOImpl implements ManageOrdersBO {
 
     private OrderDAO orderDAO;
     private OrderDetailDAO orderDetailDAO;
     private QueryDAO queryDAO;
 
+
     public ManageOrdersBOImpl() {
-        orderDAO = DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.ORDER);
-        orderDetailDAO = DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.ORDER_DETAIL);
-        queryDAO = DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.QUERY);
+//        this.orderDAO = orderDAO;
+//        this.orderDetailDAO = orderDetailDAO;
+//        this.queryDAO = queryDAO;
     }
 
 
@@ -38,17 +34,18 @@ public class ManageOrdersBOImpl implements ManageOrdersBO {
 
     @Override
     public List<OrderDTO> getOrders() throws Exception {
-        Session mySession = HibernateUtil.getSessionFactory().openSession();
-        try(Session session = mySession){
-            orderDAO.setSession(session);
-            session.beginTransaction();
-            List<OrderDTO> orderDTOS = orderDAO.findAll().map(Converter::<OrderDTO>getDTOList).get();
-            session.getTransaction().commit();
-            return orderDTOS;
-        }catch(Exception ex){
-            mySession.getTransaction().rollback();
-            throw ex;
-        }
+//        Session mySession = HibernateUtil.getSessionFactory().openSession();
+//        try(Session session = mySession){
+//            orderDAO.setSession(session);
+//            session.beginTransaction();
+//            List<OrderDTO> orderDTOS = orderDAO.findAll().map(Converter::<OrderDTO>getDTOList).get();
+//            session.getTransaction().commit();
+//            return orderDTOS;
+//        }catch(Exception ex){
+//            mySession.getTransaction().rollback();
+//            throw ex;
+//        }
+        return null;
     }
 
     @Override
@@ -58,35 +55,34 @@ public class ManageOrdersBOImpl implements ManageOrdersBO {
 
     @Override
     public void createOrder(OrderDTO dto) throws Exception {
-        Session mySession = HibernateUtil.getSessionFactory().openSession();
-        try(Session session = mySession){
-            orderDAO.setSession(session);
-            session.beginTransaction();
-            orderDAO.save(Converter.getEntity(dto));
-//            orderDetailDAO.setSession(session);
+//        Session mySession = HibernateUtil.getSessionFactory().openSession();
+//        try(Session session = mySession){
+//            orderDAO.setSession(session);
 //            session.beginTransaction();
-            orderDetailDAO.save(Converter.getEntity(dto));
-            session.getTransaction().commit();
-        }catch(Exception ex){
-            mySession.getTransaction().rollback();
-            throw ex;
-        }
+//            orderDAO.save(Converter.getEntity(dto));
+//            orderDetailDAO.save(Converter.getEntity(dto));
+//            session.getTransaction().commit();
+//        }catch(Exception ex){
+//            mySession.getTransaction().rollback();
+//            throw ex;
+//        }
     }
 
     @Override
     public OrderDTO findOrder(String orderId) throws Exception {
-        Session mySession = HibernateUtil.getSessionFactory().openSession();
-        try(Session session = mySession){
-            orderDAO.setSession(session);
-            session.beginTransaction();
-            OrderDTO orderDTO = orderDAO.find(orderId).map(Converter::<OrderDTO>getDTO).orElse(null);
-//            List<OrderDetailDTO> tmpOrderDetailsDtos = queryDAO.findOrderDetailsWithItemDescriptions(orderId).map(Converter::<OrderDetailDTO>getDTOList).orElse(null);
-            session.getTransaction().commit();
-            return orderDTO;
-        }catch(Exception ex){
-            mySession.getTransaction().rollback();
-            throw ex;
-        }
+//        Session mySession = HibernateUtil.getSessionFactory().openSession();
+//        try(Session session = mySession){
+//            orderDAO.setSession(session);
+//            session.beginTransaction();
+//            OrderDTO orderDTO = queryDAO.findAllOrdersWithCustomerNameAndTotal().map(Converter::<OrderDTO>getDTO).orElse(null);
+////            List<OrderDetailDTO> tmpOrderDetailsDtos = queryDAO.findOrderDetailsWithItemDescriptions(orderId).map(Converter::<OrderDetailDTO>getDTOList).orElse(null);
+//            session.getTransaction().commit();
+//            return orderDTO;
+//        }catch(Exception ex){
+//            mySession.getTransaction().rollback();
+//            throw ex;
+//        }
+        return null;
     }
 
 //    private OrderDAO orderDAO;

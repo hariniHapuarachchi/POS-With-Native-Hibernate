@@ -13,17 +13,12 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.dep.app.business.BOFactory;
-import lk.ijse.dep.app.business.custom.ManageCustomersBO;
-import lk.ijse.dep.app.business.custom.ManageItemsBO;
 import lk.ijse.dep.app.business.custom.ManageOrdersBO;
 import lk.ijse.dep.app.dto.OrderDTO2;
 import lk.ijse.dep.app.main.AppInitializer;
-import lk.ijse.dep.app.business.custom.impl.ManageOrdersBOImpl;
 import lk.ijse.dep.app.view.util.OrderTM;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -39,7 +34,7 @@ public class SearchOrderFormController {
 
     private ObservableList<OrderTM> olOrders;
 
-    private ManageOrdersBO manageOrdersBO = BOFactory.getInstance().getBO(BOFactory.BOTypes.MANAGE_ORDERS);
+    private ManageOrdersBO manageOrdersBO;// = BOFactory.getInstance().getBO(BOFactory.BOTypes.MANAGE_ORDERS);
 
     public void initialize() {
         tblOrders.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("orderId"));

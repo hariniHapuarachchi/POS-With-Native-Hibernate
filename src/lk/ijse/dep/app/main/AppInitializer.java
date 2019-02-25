@@ -13,6 +13,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.logging.FileHandler;
@@ -24,6 +26,7 @@ import java.util.logging.SimpleFormatter;
  */
 public class AppInitializer extends Application {
 
+    public static AnnotationConfigApplicationContext acca;
     public static void navigateToHome(Node node, Stage mainStage) throws IOException {
 
         Parent root = FXMLLoader.load(AppInitializer.class.getResource("/lk/ijse/dep/app/view/MainForm.fxml"));
@@ -47,6 +50,11 @@ public class AppInitializer extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
+
+       acca = new AnnotationConfigApplicationContext();
+        acca.register(AppConfig.class);
+        acca.refresh();
+
 
         FileHandler fileHandler = new FileHandler("error.log", true);
         fileHandler.setFormatter(new SimpleFormatter());

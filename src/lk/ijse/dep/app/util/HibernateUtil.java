@@ -27,8 +27,8 @@ public class HibernateUtil {
         Metadata metadata = new MetadataSources(registry)
                 .addAnnotatedClass(Customer.class)
                 .addAnnotatedClass(Item.class)
-                .addAnnotatedClass(Order.class)
-                .addAnnotatedClass(OrderDetail.class)
+//                .addAnnotatedClass(Order.class)
+//                .addAnnotatedClass(OrderDetail.class)
                 .buildMetadata();
 
         return metadata.buildSessionFactory();

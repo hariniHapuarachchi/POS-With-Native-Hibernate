@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Application Architecture + Native Hibernate.iml" filepath="$PROJECT_DIR$/Application Architecture + Native Hibernate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Application Architecture + (Native Hibernate + Spring).iml" filepath="$PROJECT_DIR$/Application Architecture + (Native Hibernate + Spring).iml" />
     </modules>
   </component>
 </project>

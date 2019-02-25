@@ -17,7 +17,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import lk.ijse.dep.app.business.BOFactory;
 import lk.ijse.dep.app.business.custom.ManageCustomersBO;
 import lk.ijse.dep.app.business.custom.ManageItemsBO;
 import lk.ijse.dep.app.business.custom.ManageOrdersBO;
@@ -56,9 +55,9 @@ public class ViewOrderFormController {
 
     private String orderId;
 
-    private ManageOrdersBO manageOrdersBO = BOFactory.getInstance().getBO(BOFactory.BOTypes.MANAGE_ORDERS);
-    private ManageItemsBO manageItemsBO = BOFactory.getInstance().getBO(BOFactory.BOTypes.MANAGE_ITEMS);
-    private ManageCustomersBO manageCustomersBO = BOFactory.getInstance().getBO(BOFactory.BOTypes.MANAGE_CUSTOMERS);
+    private ManageOrdersBO manageOrdersBO;// = BOFactory.getInstance().getBO(BOFactory.BOTypes.MANAGE_ORDERS);
+    private ManageItemsBO manageItemsBO;// = BOFactory.getInstance().getBO(BOFactory.BOTypes.MANAGE_ITEMS);
+    private ManageCustomersBO manageCustomersBO;// = BOFactory.getInstance().getBO(BOFactory.BOTypes.MANAGE_CUSTOMERS);
 
     @FXML
     private void navigateToMain(MouseEvent mouseEvent) throws IOException {

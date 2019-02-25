@@ -1,1 +1,4 @@
-.idea/*
+.gitignore
+.idea/**
+Application Architecture + (Native Hibernate + Spring).iml
+Application Architecture + Native Hibernate + Spring.iml
